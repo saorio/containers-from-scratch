@@ -26,7 +26,6 @@ linters:
     - unconvert
     - unparam
     - goconst
-    - goimports
 
 formatters:
   enable:
@@ -37,6 +36,3 @@ formatters:
       rewrite-rules:
         - pattern: 'interface{}'
           replacement: 'any'
-    goimports:
-      local-prefixes:
-        - github.com/golangci/golangci-lint/v2
