@@ -32,3 +32,11 @@ formatters:
   enable:
     - gofmt
     - goimports
+  settings:
+    gofmt:
+      rewrite-rules:
+        - pattern: 'interface{}'
+          replacement: 'any'
+    goimports:
+      local-prefixes:
+        - github.com/golangci/golangci-lint/v2
