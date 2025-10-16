@@ -26,8 +26,6 @@ linters:
     - unconvert
     - unparam
     - goconst
-  disable:
-    - typecheck
 
 formatters:
   enable:
@@ -38,3 +36,9 @@ formatters:
       rewrite-rules:
         - pattern: 'interface{}'
           replacement: 'any'
+
+issues:
+  exclusions:
+  - path: /
+    linters:
+    - typecheck
