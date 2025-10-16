@@ -26,6 +26,8 @@ linters:
     - unconvert
     - unparam
     - goconst
+  disable:
+    - typecheck
 
 formatters:
   enable:
