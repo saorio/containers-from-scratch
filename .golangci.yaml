@@ -4,7 +4,7 @@ run:
   timeout: 5m
 
 linters:
-  disable-all: true
+  default: none
   enable:
     - errcheck
     - govet
@@ -28,37 +28,7 @@ linters:
     - goconst
     - goimports
 
-linters-settings:
-  gocyclo:
-    # Minimal complexity of a function to report.
-    # A value around 15-20 is a good starting point.
-    min-complexity: 20
-  goimports:
-    # Put local imports after 3rd-party packages.
-    local-prefixes: github.com/synspective/sol_grdsys_dataprocessing
-  gocritic:
-    enabled-tags:
-      - performance
-      - style
-      - experimental
-  govet:
-    # Enable all analyzers.
-    enable-all: true
-    # Disable specific analyzers if they are too noisy.
-    disable:
-      - fieldalignment # Can be noisy and sometimes not worth the effort
-
-issues:
-  # It's often useful to have different rules for tests.
-  exclude-rules:
-    # Exclude `errcheck` for specific functions known to return errors that are safe to ignore.
-    - linters:
-        - errcheck
-      text: "Error return value of .((os\\.)?std(out|err)\\.Write|.*Close|os\\.Remove(All)?|os\\.Chdir|os.Mkdir(All)?|.*\\.Seek). is not checked"
-    # Do not run linters on test files that are too strict for tests.
-    - path: "_test\\.go"
-      linters:
-        - gocyclo
-        - errcheck
-        - dupl
-        - gosec
+formatters:
+  enable:
+    - gofmt
+    - goimports
