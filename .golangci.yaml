@@ -4,6 +4,11 @@ run:
   timeout: 5m
 
 linters:
+  exclusions:
+    rules:
+      - path: /
+        linters:
+        - typecheck
   default: none
   enable:
     - errcheck
@@ -36,9 +41,3 @@ formatters:
       rewrite-rules:
         - pattern: 'interface{}'
           replacement: 'any'
-
-issues:
-  exclusions:
-  - path: /
-    linters:
-    - typecheck
